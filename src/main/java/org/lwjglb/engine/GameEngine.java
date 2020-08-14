@@ -38,8 +38,8 @@ public class GameEngine implements Runnable {
 
     protected void gameLoop() {
         float elapsedTime;
-        float accumulator = 0f;
-        float interval = 1f / TARGET_UPS;
+        float accumulator = 0.0f;
+        float interval = 1.0f / TARGET_UPS;
 
         boolean running = true;
         while (running && !window.windowShouldClose()) {
