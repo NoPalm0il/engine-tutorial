@@ -19,7 +19,7 @@ public class Mesh {
 
     public Mesh(float[] positions, float[] colours, int[] indices){
         FloatBuffer posBuffer = null;
-        FloatBuffer colourBuffer = null;
+        FloatBuffer colourBuffer;
         IntBuffer indicesBuffer = null;
 
         try{
@@ -72,6 +72,16 @@ public class Mesh {
 
     public int getVertexCount() {
         return vertexCount;
+    }
+
+    public void render() {
+        // Draw the mesh
+        glBindVertexArray(getVaoId());
+
+        glDrawElements(GL_TRIANGLES, getVertexCount(), GL_UNSIGNED_INT, 0);
+
+        // Restore state
+        glBindVertexArray(0);
     }
 
     public void cleanUp(){
